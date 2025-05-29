@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>(); // <- nello Start assengo la componente Rigidbody2D alla variabile "_rb"
+        _rb = GetComponent<Rigidbody2D>(); // <- nello Start assegno la componente Rigidbody2D alla variabile "_rb"
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
             {
                 //dir.Normalize(); // <- normalizza il vettore direzione tramite funzione
 
-                dir /= length; // <- normalizza il vettore manualmente
+                dir /= length; // <- normalizza il vettore direzione manualmente
             }
 
             _rb.MovePosition(_rb.position + dir * (_speed * Time.deltaTime)); // <- muovo il player tramite componente Rigidbody2D

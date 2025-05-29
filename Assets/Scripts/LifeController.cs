@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LifeController : MonoBehaviour
 {
-    public int health;
+    [SerializeField] private int health = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -21,22 +21,17 @@ public class LifeController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        health -= damage;
         if (health <= 0)
         {
             Debug.Log($"Il giocatore è stato sconfitto");
             Destroy(gameObject);
         }
-        health -= damage;
         Debug.Log($"{gameObject.name} subisce {damage} danni (HP: {health})");
     }
 
     public void TakeHeal(int amount)
     {
-        if (health <= 0)
-        {
-            Debug.Log($"Il giocatore è statpo sconfitto");
-            Destroy(gameObject);
-        }
         health += amount;
         Debug.Log($"{gameObject.name} guadagna {amount} HP (HP: {health})");
     }

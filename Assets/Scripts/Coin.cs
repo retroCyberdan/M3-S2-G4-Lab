@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    private int _coins = 0;
+    private static int _coins = 0; // <- la rendo statica per poter essere accessibile universalmente
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _coins++;
-        Debug.Log($"Hai {_coins} monete");
-        collision.gameObject.SetActive(false);
+        if(collision.CompareTag("Player"))
+        {
+            _coins++;
+            Debug.Log($"Hai raccolto {_coins} monete");
+            gameObject.SetActive(false);
+        }
     }
 }
